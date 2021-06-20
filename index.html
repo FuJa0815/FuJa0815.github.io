@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>:)</title>
+	  <style>
+		@keyframes animatedBackground {
+		  from {
+			background-position: 0 0;
+		  }
+		  to {
+			background-position: 100% 50%;
+		  }
+		}
+		@keyframes animatedBackground2 {
+		  from {
+			background-size: 4%;
+		  }
+		  to {
+			background-size: 6%;
+		  }
+		}
+
+		@keyframes rotating {
+		  from {
+			transform: rotate(0deg);
+		    filter: hue-rotate(0deg);
+		  }
+		  to {
+			transform: rotate(360deg);
+		    filter: hue-rotate(360deg);
+		  }
+		}
+
+		@keyframes title {
+		  from {
+			transform:translate(-50%, -50%) scale(3,1) rotateZ(0deg) rotateY(0deg);
+		  }
+		  to {
+			transform:translate(-50%, -50%) scale(3,1) rotateZ(720deg) rotateY(360deg);
+		  }
+		}
+	  
+	    html,body {
+		  margin: 0;
+		}
+	    div {
+		  width: 100%;
+		  height: 100vh;
+		  animation: animatedBackground 10s linear infinite alternate, animatedBackground2 3s ease-in-out infinite alternate;
+		  background-image: url('http://www.htl-grieskirchen.net/uploads/pics/grueneis.JPG');
+		  display:flex;justify-content:center;align-items:center;
+		}
+		img {
+		  animation: rotating 5s linear infinite;
+		  width: 20%;
+		  filter: hue-rotate(180deg);
+		}
+		h1 {
+			position: absolute;
+			left: 50%;
+			top: 20%;
+			font-family: Impact;
+			animation: title 10s linear infinite;
+			font-size: 72px;
+			color: purple;
+            background-image: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+			text-shadow:     0 1px 0 hsl(174,5%,80%),
+	                 0 2px 0 hsl(174,5%,75%),
+	                 0 3px 0 hsl(174,5%,70%),
+	                 0 4px 0 hsl(174,5%,66%),
+	                 0 5px 0 hsl(174,5%,64%),
+	                 0 6px 0 hsl(174,5%,62%),
+	                 0 7px 0 hsl(174,5%,61%),
+	                 0 8px 0 hsl(174,5%,60%),
+	
+	                 0 0 5px rgba(0,0,0,.05),
+	                0 1px 3px rgba(0,0,0,.2),
+	                0 3px 5px rgba(0,0,0,.2),
+	               0 5px 10px rgba(0,0,0,.2),
+	              0 10px 10px rgba(0,0,0,.2),
+	              0 20px 20px rgba(0,0,0,.3);
+		}
+	  </style>
+	  <script>
+	  function Sleep(milliseconds) {
+		return new Promise(resolve => setTimeout(resolve, milliseconds));
+	  }
+      var playing = false;
+	  async function play(url) {
+	    if(playing)
+		  return;
+	    playing = true;
+	    while(true) {
+	      var audio = new Audio(url);
+		  audio.play();
+		  await Sleep(2000);
+		}
+	  }
+	  </script>
+    </head>
+	<body onmousemove="play('https://www.myinstants.com/media/sounds/fortnite-dance-moves-emote-music-tv9iv8cxmo0-1.mp3');">
+		<div>
+		    <img src="http://www.htl-grieskirchen.net/uploads/pics/grueneis.JPG"></img>
+		</div>
+		<h1>Grüni Style!</h1>
+		<p>Klick mal!</p>
+	</body>
+</html>
